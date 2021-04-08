@@ -7,7 +7,6 @@ exports.performLogin = async function(req, res)  {
     if(usersDataBase == null) usersDataBase = await mongo.getDB().collection('users')
     res.header("Content-Type: application/json");
     const user = await performLogin(usersDataBase, req.body)
-    console.log(user)
     if(user) 
         res.send({"user": user});
     else res.send({"message": "User with email address and password combination not found."}); 
