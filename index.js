@@ -5,9 +5,12 @@ const mongo = require('./data/mongo');
 
 const app = express();
 const port = 8000
+const corsOptions = {
+    origin: '*'
+}
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const dogsRouter = require('./routes/dogsRoute');
 const bookingsRouter = require('./routes/bookingsRoute');
