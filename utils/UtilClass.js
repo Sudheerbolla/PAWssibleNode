@@ -52,7 +52,7 @@ const parseUser = (user, withId) => {
         phone:user.phone,
         address:user.address
     };
-    if(withId) newUser.userId=user.userId;
+    if(withId) newUser.userId=user.userId?user.userId:user._id;
     return newUser;
 }
 

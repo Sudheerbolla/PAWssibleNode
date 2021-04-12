@@ -24,7 +24,7 @@ const updateDog = async(collection, dog) => {
 
 const changeDogStatus = async(collection, dog) => {
     var newvalues = { "$set": {
-        active:dog.active
+        active: dog.active
     } };
     const newDog = await collection.updateOne({"_id":ObjectID(dog.dogId)}, newvalues);
     return dog;

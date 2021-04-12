@@ -21,9 +21,11 @@ exports.addUser = async function(req, res)  {
     else res.send({"user": user.ops[0]}); 
 }
 
-exports.updateUser = async function(req, res)  {    
+exports.updateUser = async function(req, res)  {
     if(usersDataBase == null) usersDataBase = await mongo.getDB().collection('users')
     var newUser = utilClass.parseUser(req.body,true)
+    const requestData = JSON.stringify(newUser)
+    console.log(requestData);
     res.header("Content-Type: application/json");
     newUser = await updateUser(usersDataBase, newUser)
     res.send({"user": newUser}); 

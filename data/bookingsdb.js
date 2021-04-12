@@ -6,6 +6,8 @@ const createBooking = async(collection, booking) => {
     return newBooking;
 }
 
+// status - R - requested, X - cancelled, C - Completed, P - Accepted
+
 const changeBookingStatus = async(collection, bookingId, status) => {
     var newvalues = { "$set": {
         'status': status

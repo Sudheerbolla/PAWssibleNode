@@ -47,7 +47,7 @@ exports.createBooking = async function(req, res)  {
 exports.changeBookingStatus = async function(req, res)  {
     if(bookingsDataBase == null) bookingsDataBase = await mongo.getDB().collection('bookings')
     res.header("Content-Type: application/json");
-    newUser = await changeBookingStatus(bookingsDataBase, req.params.bookingId, req.params.status )
+    await changeBookingStatus(bookingsDataBase, req.params.bookingId, req.params.status )
     res.send({"message": "Updated Booking"}); 
 }
 

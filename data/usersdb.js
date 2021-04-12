@@ -15,12 +15,14 @@ const addUser = async(collection, user) => {
 }
 
 const updateUser = async(collection, user) => {
+    const requestData = JSON.stringify(user)
     var newvalues = { "$set": {
         phone: user.phone,
         name: user.name,
         address: user.address,
         password: user.password
     } };
+    
     const resp = await collection.updateOne({"_id":ObjectID(user.userId)}, newvalues);
     return user;
 }

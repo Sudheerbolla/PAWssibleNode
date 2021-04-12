@@ -20,7 +20,7 @@ exports.getDogsListUser =  async function(req, res)  {
 
 exports.addDog =  async function(req, res)  {    
     if(dogsDataBase == null) dogsDataBase = await mongo.getDB().collection('dogs')
-    var newDog = utilClass.parseDog(req.body,false)
+    var newDog = utilClass.parseDog(req.body, false)
     res.header("Content-Type: application/json");
     newDog = await addDog(dogsDataBase, newDog)
     res.send({"dog":newDog.ops[0]}); 
@@ -29,7 +29,7 @@ exports.addDog =  async function(req, res)  {
 exports.updateDog =  async function(req, res)  {    
     // const db = await mongo.getDB();
     if(dogsDataBase == null) dogsDataBase = await mongo.getDB().collection('dogs')
-    var newDog = utilClass.parseDog(req.body,true)
+    var newDog = utilClass.parseDog(req.body, true)
     res.header("Content-Type: application/json");
     newDog = await updateDog(dogsDataBase, newDog)
     res.send({"dog": newDog}); 
